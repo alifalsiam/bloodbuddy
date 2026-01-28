@@ -1,0 +1,80 @@
+/* PORTAL LAYOUT */
+#portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.portal-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+}
+
+/* THE FLOATING CARDS */
+.portal-card {
+  background: var(--glass);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 2px solid var(--stroke);
+  border-radius: 35px;
+  padding: 30px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: floatingBob 4s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portal-card:last-child {
+  animation-delay: 0.5s;
+}
+
+.portal-card:active {
+  transform: scale(0.95);
+}
+
+.portal-card h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.portal-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* CONTINUOUS FLOATING KEYFRAMES */
+@keyframes floatingBob {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 360px) {
+  .portal-row {
+    gap: 12px;
+  }
+  .portal-card {
+    padding: 26px 10px;
+  }
+}
+
